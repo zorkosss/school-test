@@ -8,6 +8,9 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./school-attendance-dashboard-main
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -19,4 +22,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./school-attendance-dashboard-main
+          publish_dir: .

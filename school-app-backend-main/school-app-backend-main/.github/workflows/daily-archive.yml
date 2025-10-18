@@ -1,0 +1,17 @@
+name: Daily Absence Report Archiver
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 21 * * *'
+
+jobs:
+  archive-reports:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send POST request to archive endpoint
+        env:
+          ARCHIVE_URL: ${{ secrets.ARCHIVE_URL }}
+        run: |
+          echo "Sending request to URL: $ARCHIVE_URL"
+          curl --request POST --url "$ARCHIVE_URL"

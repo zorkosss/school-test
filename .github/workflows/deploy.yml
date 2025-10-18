@@ -12,6 +12,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: List files
+        run: ls -R
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
